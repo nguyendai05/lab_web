@@ -1,0 +1,67 @@
+body {
+    display: flex;
+
+}
+aside{
+    width: 280px;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+main{
+    flex-grow: 1;
+    padding: 20px;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+h1{
+    text-align: center;
+}
+.content-search{
+    position: relative;
+}
+.search-input-1, .search-input-2{
+    padding: 6px 40px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+.search-input-2{
+    display: flex;
+
+}
+.fa-magnifying-glass,
+.content-search .fa-magnifying-glass {
+    position: absolute; /* Đặt icon "nổi" lên trên input */
+    left: 15px;         /* Cách lề trái 15px */
+    top: 50%;           /* Căn giữa theo chiều dọc */
+    transform: translateY(-50%); /* Căn giữa icon một cách hoàn hảo */
+    color: #aaa;        /* Cho icon màu xám mờ */
+}
+.cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+.card{
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);;
+    overflow: hidden;
+    text-align: left;
+}
+img{
+    height: 120px;
+    object-fit: cover;
+}
+.card img{
+    width: 100%;
+    display: block;
+}
+.card p{
+    padding: 0 15px;
+}
