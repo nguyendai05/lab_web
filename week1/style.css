@@ -1,67 +1,373 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+  --border:#ecdfe1;        /* hồng nhạt viền */
+  --ink:#222;              /* màu chữ chính */
+  --muted:#777;
+  --pill:#ccd0f2;          /* nền ô tìm kiếm */
+  --pill-icon:#b2b7e6;     /* nền tròn của icon kính lúp */
+  --page-bg:#f4ecec;    /* nền hồng nhạt */
+  --border:#dcd2d1;
+  --muted:#8d8d8d;
+  --active:#7daec1;     /* xanh nhạt cho tab active */
+}
 body {
+}
+.main-content {
     display: flex;
+    min-height: 100vh;
+    background-color: #f4ecec;
+}
 
-}
-aside{
-    width: 280px;
-    padding: 20px;
-    background-color: #f8f9fa;
-}
-main{
+main {
     flex-grow: 1;
     padding: 20px;
 }
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ddd;
-}
-h1{
+
+
+h1 {
     text-align: center;
 }
-.content-search{
-    position: relative;
-}
-.search-input-1, .search-input-2{
+
+.search-input-1,
+.search-input-2 {
     padding: 6px 40px;
     width: 250px;
     border: 1px solid #ccc;
     border-radius: 20px;
 }
-.search-input-2{
+
+.search-input-2 {
     display: flex;
 
 }
+
 .fa-magnifying-glass,
 .content-search .fa-magnifying-glass {
-    position: absolute; /* Đặt icon "nổi" lên trên input */
-    left: 15px;         /* Cách lề trái 15px */
-    top: 50%;           /* Căn giữa theo chiều dọc */
-    transform: translateY(-50%); /* Căn giữa icon một cách hoàn hảo */
-    color: #aaa;        /* Cho icon màu xám mờ */
+    position: absolute;
+    /* Đặt icon "nổi" lên trên input */
+    left: 15px;
+    /* Cách lề trái 15px */
+    top: 50%;
+    /* Căn giữa theo chiều dọc */
+    transform: translateY(-50%);
+    /* Căn giữa icon một cách hoàn hảo */
+    color: #aaa;
+    /* Cho icon màu xám mờ */
 }
-.cards{
+
+.cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
 }
-.card{
+
+.card {
     border: 1px solid #eee;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    ;
     overflow: hidden;
     text-align: left;
 }
-img{
+
+img {
     height: 120px;
     object-fit: cover;
 }
-.card img{
+
+.card img {
     width: 100%;
     display: block;
 }
-.card p{
+
+.card p {
     padding: 0 15px;
+}
+
+.content ul li{
+    list-style-type: none;
+    padding: 0;
+    font-size: medium;
+    font-weight: 500;
+}
+
+.content ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    gap: 50px;
+}
+
+aside{
+  width: 220px;                 
+  min-height: 100vh;
+  background-color: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+}
+
+aside ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+aside li{
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  color: #fff;
+  background: #6c98ad;          
+  border-top: 1px solid white;
+  border-bottom: 2px solid white;
+  letter-spacing: .2px;
+}
+
+aside li a{
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+aside li select{
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  outline: none;
+}
+
+aside .social{
+  margin-top: auto;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;  
+}
+
+aside .social a{
+  display: inline-flex;
+  width: 30px; height: 30px; 
+  align-items: center; justify-content: center;
+  text-decoration: none;
+  color: #111;            
+  font-size: 30px;
+}
+
+/* Hover màu thương hiệu (tuỳ thích) */
+aside .social .fa-facebook:hover{ color:#1877f2; }
+aside .social .fa-instagram:hover{ color:#d62976; }
+aside .social .fa-x-twitter:hover{ color:#000; }
+aside .social .fa-tiktok:hover{ color:#111; }
+
+nav{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  padding: 8px 12px;
+  background:#fff;
+  border:1px solid var(--border);
+}
+
+/* Logo */
+nav .logo a{
+  text-decoration:none;
+  color:var(--ink);
+  font-size:28px;
+  font-weight:700;
+  padding-right:14px;
+  line-height:1;
+}
+
+nav .logo + select,
+nav select + select,
+nav select + .content-search,
+nav .content-search + div,
+nav div + div i:last-of-type{
+  border-left:1px solid var(--border);
+}
+.fa-solid{
+    display: flex;
+    gap: 10px;
+    padding-left: 20px;
+}
+
+/* Ô select (Trang blog của tôi / Khám phá / Giúp đỡ) */
+nav select{
+  appearance:none;
+  -webkit-appearance:none;
+  border:none;
+  background:transparent;
+  padding:10px 34px 10px 14px; 
+  color:var(--ink);
+  font-size:14px;
+  cursor:pointer;
+
+  /* mũi tên ▼ */
+  background-image:url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'>\
+  <path d='M1 1l5 5 5-5' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/>\
+  </svg>");
+  background-repeat:no-repeat;
+  background-position:right 10px center;
+}
+
+
+.content-search{
+  position:relative;
+  flex:1;                     
+  padding-left:12px;           
+  min-width:240px;
+  display:flex;
+  align-items:center;
+}
+
+.search-input-1{
+  width:100%;
+  height:42px;
+  border:none;
+  outline:none;
+  background:var(--pill);
+  border-radius:999px;
+  padding:0 16px 0 48px;  
+  color:var(--ink);
+  font-size:14px;
+}
+.search-input-1::placeholder{ color:var(--muted); }
+
+/* Icon kính lúp tròn nằm trong ô */
+.content-search i.fa-magnifying-glass{
+  position:absolute;
+  left:15px;
+  top:50%;
+  transform:translateY(-50%);
+  width:26px; height:26px;
+  border-radius:50%;
+  display:grid; place-items:center;
+  background:var(--pill-icon);
+  font-size:12px;
+  color:#2b2b2b;
+}
+
+/* Cụm icon bên phải */
+nav > div:last-of-type{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding-left:14px;           /* tách khỏi vạch ngăn */
+}
+nav > div:last-of-type i{
+  font-size:18px;
+  color:#000;
+}
+
+
+.content{
+  background: var(--page-bg);
+  padding: 32px 16px 0;
+  text-align: center;
+  border-top: none;
+}
+
+.content h1{
+  margin: 0 0 14px;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #121212;
+  text-shadow: 0 8px 18px rgba(0,0,0,.35);
+}
+
+/* Ô tìm kiếm giữa trang */
+.content .content-search{
+  position: relative;
+  width: 520px;                 /* tuỳ chỉnh */
+  max-width: 92%;
+  margin: 8px auto 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-input-2{
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 999px;
+  padding: 0 16px 0 50px;       /* chừa chỗ icon bên trái */
+  outline: none;
+  font-size: 14px;
+  color: #222;
+}
+.search-input-2::placeholder{ color: var(--muted); }
+
+/* Icon kính lúp “nút tròn” trong ô */
+.content .content-search i.fa-magnifying-glass{
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--border);
+  display: grid; place-items: center;
+  font-size: 12px;
+  color: #000;
+}
+
+/* Tabs danh mục */
+.content > ul{
+  list-style: none;
+  padding: 0 16px 12px;
+  margin: 0 auto;
+  max-width: 1040px;
+  display: flex;
+  gap: 42px;                  
+  justify-content: flex-start;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.content > ul li{
+  position: relative;
+  padding: 8px 0 14px;
+  color: var(--muted);
+  font-size: 18px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Trạng thái đang chọn (đặt class="active" cho li) */
+.content > ul li.active{
+  color: var(--active);
+  font-weight: 600;
+}
+.content > ul li.active::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;   /* trùng đường kẻ dưới */
+  height: 3px;
+  border-radius: 2px;
+  background: var(--active);
+}
+
+/* Mặc định cho tab đầu tiên nếu chưa thêm .active */
+.content > ul li:first-child:not(.active){
+  color: var(--active);
+  font-weight: 600;
+}
+.content > ul li:first-child:not(.active)::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-1px;
+  height:3px; border-radius:2px; background:var(--active);
 }
